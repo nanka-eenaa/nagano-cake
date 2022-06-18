@@ -1,5 +1,20 @@
 Rails.application.routes.draw do
 
+  scope module: :public do
+    get 'customers/my_page' => 'customers#show', as: 'my_page'
+    get 'customers/edit' => 'customers#edit', as: 'customer_edit'
+    patch 'customers' => 'customers#update', as: 'customer_update'
+    get 'customers/check' => 'customers#check', as: 'customer_check'
+    patch 'customers/withdraw' => 'customers#withdraw', as: 'customer_withdraw'
+    resources :addresses, only:[:index, :create, :edit, :update, :destroy]
+    resources :items, only:[:index, :show]
+    resources :cart_items, only:[:create, :index, :update, :destroy]
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
+    post 'orders/check' => 'orders#check', as: 'order_check'
+    get 'orders/thanks' => 'orders#thanks', as: 'order_thanks'
+    resources :orders, only:[:new, :create, :index, :show]
+  end
+
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -16,21 +31,6 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :show, :update] do
       resources :order_details, only:[:update]
     end
-  end
-
-  scope module: :public do
-    get 'customers/my_page' => 'customers#show', as: 'my_page'
-    get 'customers/edit' => 'customers#edit', as: 'customer_edit'
-    patch 'customers' => 'customers#update', as: 'customer_update'
-    get 'customers/check' => 'customers#check', as: 'customer_check'
-    patch 'customers/withdraw' => 'customers#withdraw', as: 'customer_withdraw'
-    resources :addresses, only:[:index, :create, :edit, :update, :delete]
-    resources :items, only:[:index, :show]
-    resources :cart_items, only:[:create, :index, :update, :destroy]
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: 'destroy_all'
-    post 'orders/check' => 'orders#check', as: 'order_check'
-    get 'orders/thanks' => 'orders#thanks', as: 'order_thanks'
-    resources :orders, only:[:new, :create, :index, :show]
   end
 
 end
