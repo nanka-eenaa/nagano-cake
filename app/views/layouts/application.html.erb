@@ -24,22 +24,48 @@
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
                 <li>
-                  <%= link_to about_path, class: 'text-dark btn btn-outline-secondary' do %>
+                  <%= link_to my_page_path, class: 'text-dark btn btn-outline-secondary' do %>
                     マイページ
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class: 'text-dark btn btn btn-outline-secondary' do %>
+                  <%= link_to items_path, class: 'text-dark btn btn btn-outline-secondary' do %>
                     商品一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class: 'text-dark btn btn btn-outline-secondary' do %>
+                  <%= link_to cart_items_path, class: 'text-dark btn btn btn-outline-secondary' do %>
                     カート
                   <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_customer_session_path, method: :delete, class: 'text-dark btn btn btn-outline-secondary' do %>
+                    ログアウト
+                  <% end %>
+                </li>
+              <% elsif admin_signed_in? %>
+                <li>
+                  <%= link_to admin_items_path, class: 'text-dark btn btn-outline-secondary' do %>
+                    商品一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_customers_path, class: 'text-dark btn btn btn-outline-secondary' do %>
+                    会員一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_orders_path, class: 'text-dark btn btn btn-outline-secondary' do %>
+                    注文履歴一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_genres_path, class: 'text-dark btn btn btn-outline-secondary' do %>
+                    ジャンル一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_admin_session_path, class: 'text-dark btn btn btn-outline-secondary' do %>
                     ログアウト
                   <% end %>
                 </li>
@@ -50,7 +76,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to about_path, class: 'text-dark btn btn btn-outline-secondary' do %>
+                  <%= link_to items_path, class: 'text-dark btn btn btn-outline-secondary' do %>
                     商品一覧
                   <% end %>
                 </li>
