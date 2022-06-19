@@ -1,5 +1,6 @@
 <div class="container">
   <h4>新規会員登録</h4>
+  <%= render 'shared/notice' %>
 
   <%= form_with model: @customer, url: customer_registration_path do |f| %>
 
