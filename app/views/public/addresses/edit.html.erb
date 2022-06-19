@@ -6,17 +6,17 @@
     <%= form_with model: @address do |f| %>
 
       <div class="field">
-        <%= f.label,:post_code, "郵便番号(ハイフンなし)" %>
+        <%= f.label :post_code, "郵便番号(ハイフンなし)" %>
         <%= f.text_field :post_code, autofocus: true  %>
       </div>
 
       <div class="field">
-        <%= f.label,:address, "住所" %>
+        <%= f.label :address, "住所" %>
         <%= f.text_field :address %>
       </div>
 
       <div class="field">
-        <%= f.label,:name, "宛名" %>
+        <%= f.label :name, "宛名" %>
         <%= f.text_field :name %>
       </div>
 
