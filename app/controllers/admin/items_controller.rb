@@ -13,8 +13,9 @@ class Admin::ItemsController < ApplicationController
     if @item.save
       redirect_to admin_item_path(@item.id)
     else
-      @items = Item.page(params[:page])
-      render :index
+      @item = Item.new
+      @genres = Genre.all
+      render :new
     end
   end
 

@@ -13,7 +13,9 @@
       <h3><strong>新着商品</strong></h3>
       <% @items.each do |item| %>
         <div>
-          <%= image_tag item.get_image(100,100) %>
+          <%= link_to item_path(item.id) do %>
+            <%= image_tag item.get_image(100,100) %>
+          <% end %>
           <%= item.name %>
           ￥<%= item.price %>
         </div>
