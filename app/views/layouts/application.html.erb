@@ -23,6 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
+                <p>ようこそ、<%= current_customer.last_name %>さん！</p>
                 <li>
                   <%= link_to my_page_path, class: 'text-dark btn btn-outline-secondary' do %>
                     マイページ
@@ -65,7 +66,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to destroy_admin_session_path, class: 'text-dark btn btn btn-outline-secondary' do %>
+                  <%= link_to destroy_admin_session_path, method: :delete, class: 'text-dark btn btn btn-outline-secondary' do %>
                     ログアウト
                   <% end %>
                 </li>
