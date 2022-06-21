@@ -70,5 +70,6 @@
   <%= f.hidden_field :postage,value: @order.postage %>
   <%= f.hidden_field :total_payment,value: @order.total_payment %>
   <%= f.hidden_field :payment_method,value: @order.payment_method %>
+  <%= f.hidden_field :select_address,value: @select_address %>
   <%= f.submit "注文を確定する" %>
 <% end %>

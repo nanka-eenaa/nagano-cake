@@ -8,27 +8,33 @@ class Public::OrdersController < ApplicationController
   end
 
   def check
+    @select_address = params[:order][:select_address]
     @order = current_customer.orders.new(order_params)
     @order.postage = 800
     @cart_items = current_customer.cart_items.all
     @total_price = @cart_items.inject(0) { |sum, item| sum + item.sub_total }
     @order.total_payment = @total_price + @order.postage
-    if params[:order][:select_address] == "0"
+    if @select_address == "0"
       @order.post_code = current_customer.post_code
       @order.address = current_customer.address
       @order.name = current_customer.name
-    elsif  params[:order][:select_address] == "1"
+    elsif @select_address == "1"
       @address = Address.find(params[:order][:address_id])
       @order.post_code = @address.post_code
       @order.address = @address.address
       @order.name = @address.name
-    elsif  params[:order][:select_address] == "2"
+    elsif @select_address == "2"
+    end
+    if @order.invalid?
+      @addresses = current_customer.addresses.all
+      render :new
     end
   end
 
   def create
     @order = current_customer.orders.new(order_params)
     @cart_items = current_customer.cart_items
+    select_address = params[:order][:select_address]
     if @order.save
       @cart_items.each do |cart_item|
         @order_detail = OrderDetail.new
@@ -37,6 +43,14 @@ class Public::OrdersController < ApplicationController
         @order_detail.quantity = cart_item.quantity
         @order_detail.price = cart_item.item.tax_price
         @order_detail.save
+      end
+
+      if select_address == "2"
+        address = current_customer.addresses.new
+        address.name = @order.name
+        address.post_code = @order.post_code
+        address.address = @order.address
+        address.save
       end
       @cart_items.destroy_all
       redirect_to order_thanks_path
