@@ -17,7 +17,6 @@ ja:
         working: "製作中"
         completed: "製作完了"
 
-ja:
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'
