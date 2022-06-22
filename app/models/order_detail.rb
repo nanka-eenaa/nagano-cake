@@ -3,4 +3,13 @@ class OrderDetail < ApplicationRecord
 
   belongs_to :order
   belongs_to :item
+
+  def tax_price
+    (price * 1.1).floor
+  end
+  
+  def sub_total
+    item.tax_price * quantity
+  end
+
 end

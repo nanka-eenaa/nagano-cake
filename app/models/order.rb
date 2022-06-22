@@ -4,11 +4,16 @@ class Order < ApplicationRecord
 
   belongs_to :customer
   has_many :order_details, dependent: :destroy
+  has_many :items,through: :order_details
 
   validates :post_code, presence: true
   validates :address, presence: true
   validates :postage, presence: true
   validates :name, presence: true
   validates :total_payment, presence: true
+
+  def total_quantity
+    order_details.inject(0) { |sum, item| sum + item.quantity }
+  end
 
 end

@@ -5,6 +5,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders.all
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order_total_price = @order.total_payment - @order.postage
+    @order_details = @order.order_details.all
   end
 
   def check
