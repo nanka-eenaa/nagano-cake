@@ -12,11 +12,16 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= l order.created_at %></td>
+        <td>
+          <%= link_to admin_order_path(order.id) do %>
+            <%= l order.created_at %>
+          <% end %>
+        </td>
         <td><%= order.customer.name %></td>
         <td><%= order.total_quantity %></td>
-        <td></td>
+        <td><%= order.status_i18n %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= paginate @orders %>
