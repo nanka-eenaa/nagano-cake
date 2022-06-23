@@ -15,80 +15,76 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <h1><strong><%= link_to "LOGO",root_path %></strong></h1>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <h2><strong><%= link_to "NaganoCake",root_path, class: "logo" %></strong></h2>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
-                <p>ようこそ、<%= current_customer.last_name %>さん！</p>
+                <div class="welcome">ようこそ、<%= current_customer.last_name %>さん！</div>
                 <li>
-                  <%= link_to my_page_path, class: 'text-dark btn btn-outline-secondary' do %>
-                    マイページ
+                  <%= link_to my_page_path, class: 'nav-text btn btn-outline-secondary' do %>
+                    <i class="fas fa-user-circle"></i> マイページ
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to items_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    商品一覧
+                  <%= link_to items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-cheese"></i> 商品一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to cart_items_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    カート
+                  <%= link_to cart_items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-shopping-cart"></i> カート
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to destroy_customer_session_path, method: :delete, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    ログアウト
+                  <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-sign-out"></i> ログアウト
                   <% end %>
                 </li>
               <% elsif admin_signed_in? %>
                 <li>
-                  <%= link_to admin_items_path, class: 'text-dark btn btn-outline-secondary' do %>
-                    商品一覧
+                  <%= link_to admin_items_path, class: 'nav-text btn btn-outline-secondary' do %>
+                    <i class="fas fa-cheese"></i> 商品一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to admin_customers_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    会員一覧
+                  <%= link_to admin_customers_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-users"></i> 会員一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to admin_orders_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    注文履歴一覧
+                  <%= link_to admin_orders_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-history"></i> 注文履歴一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to admin_genres_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    ジャンル一覧
+                  <%= link_to admin_genres_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-cookie"></i> ジャンル一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to destroy_admin_session_path, method: :delete, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    ログアウト
+                  <%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-sign-out"></i> ログアウト
                   <% end %>
                 </li>
               <% else %>
                 <li>
-                  <%= link_to about_path, class: 'text-dark btn btn-outline-secondary' do %>
-                    About
+                  <%= link_to about_path, class: 'nav-text btn btn-outline-secondary' do %>
+                    <i class="fas fa-store"></i> About
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to items_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    商品一覧
+                  <%= link_to items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-birthday-cake"></i> 商品一覧
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to new_customer_registration_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    新規登録
+                  <%= link_to new_customer_registration_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                    <i class="fas fa-user-plus"></i> 新規登録
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to new_customer_session_path, class: 'text-dark btn btn btn-outline-secondary' do %>
-                    ログイン
+                  <%= link_to new_customer_session_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-sign-in-alt"></i> ログイン
                   <% end %>
                 </li>
               <% end %>
@@ -104,6 +100,7 @@
       <div class="container mt-5">
         <div class="row">
           <div class="mx-auto">
+            <small>©️ NaganoCake </small>
           </div>
         </div>
       </div>
