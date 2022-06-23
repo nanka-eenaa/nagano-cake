@@ -1,2 +1,45 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+body {
+  color: #a08a7a;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+}
+
+header {
+  border-bottom: 4px dashed #a08a7a;
+}
+
+footer {
+  border-top: 4px dashed #a08a7a;
+}
+
+a {
+  color: #a08a7a;
+}
+
+.logo {
+  font-family: "Hannotate SC";
+}
+
+.nav-text {
+  color: #a08a7a;
+  font-family: "Hannotate SC";
+  border-color: #a08a7a;
+}
+
+.navbar {
+  li{
+    margin: 0 10px;
+  }
+}
+
+
+.navbar-nav {
+  align-items: center;
+}
+
+.welcome {
+  margin-right: 50px;
+}
+
