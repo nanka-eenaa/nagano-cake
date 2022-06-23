@@ -52,7 +52,7 @@
 
 
 <div>
-  <strong>支払い方法</strong>
+  <strong>支払方法</strong>
   <%= @order.payment_method_i18n %>
 </div>
 
@@ -71,5 +71,5 @@
   <%= f.hidden_field :total_payment,value: @order.total_payment %>
   <%= f.hidden_field :payment_method,value: @order.payment_method %>
   <%= f.hidden_field :select_address,value: @select_address %>
-  <%= f.submit "注文を確定する" %>
+  <%= f.submit "注文を確定する",class: "btn btn-success" %>
 <% end %>
