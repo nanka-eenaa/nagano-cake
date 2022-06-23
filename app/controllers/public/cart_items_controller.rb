@@ -8,12 +8,15 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     @new_cart_item = current_customer.cart_items.find_by(item_id: @cart_item.item_id)
-    if @new_cart_item.present?
+    if params[:cart_item][:quantity].blank?
+      redirect_to item_path(@cart_item.item_id)
+    elsif @new_cart_item.present?
       @cart_item.quantity += @new_cart_item.quantity
       @new_cart_item.destroy
     end
-    @cart_item.save
-    redirect_to cart_items_path
+    if @cart_item.save
+      redirect_to cart_items_path
+    end
   end
 
   def update
