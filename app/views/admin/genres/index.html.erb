@@ -1,25 +1,38 @@
 <div class="container">
-  <h4>ジャンル一覧・追加</h4>
-  <%= form_with model: @genre, url: admin_genres_path do |f| %>
-    <%= render 'form', f: f %>
+  <div class="row">
+    <div class="col-9 offset-2">
+      <div class="customer-login-form">
+        <div class="my-2">
+          <h4>ジャンル一覧・追加</h4>
+          <%= form_with model: @genre, url: admin_genres_path do |f| %>
+            <%= render 'form', f: f %>
+            <div class="d-flex flex-row-reverse my-3">
+              <%= f.submit "新規登録", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
 
-    <%= f.submit "新規登録", class: "btn btn-success" %>
-  <% end %>
-
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th>ジャンル名</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @genres.each do |genre| %>
-        <tr>
-          <td><%= genre.name %></td>
-          <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success"%></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <table class="table">
+          <thead class="thead-light ">
+            <tr>
+              <th>ジャンル名</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @genres.each do |genre| %>
+              <tr>
+                <td><%= genre.name %></td>
+                <td>
+                  <div class="d-flex flex-row-reverse">
+                    <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success"%>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+     </div>
+    </div>
+  </div>
 </div>
