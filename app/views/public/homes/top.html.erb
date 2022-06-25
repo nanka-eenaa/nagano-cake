@@ -1,26 +1,40 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-2 mt-5">
       <%= render 'genre', genres: @genres %>
     </div>
-    <div class="col-lg-10">
-      <p>
-        ようこそ、ながのCAKEへ！<br>
-        このサイトは、ケーキ販売のECサイトになります。<br>
-        会員でない方も商品の閲覧はできますが、<br>
-        購入には会員登録が必要になります。
-      </p>
-      <h3><strong>新着商品</strong></h3>
-      <% @items.each do |item| %>
-        <div>
-          <%= link_to item_path(item.id) do %>
-            <%= image_tag item.get_image(100,100) %>
-          <% end %>
-          <%= item.name %>
-          ￥<%= item.price.to_s(:delimited) %>
+    <div class="col-lg-10 my-5">
+      <div class="top-bg mb-5">
+        <p class="top-massege pt-5 pl-5">
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </p>
+      </div>
+      <div class="row">
+        <div class="col my-3">
+          <h3><strong>新着商品</strong></h3>
         </div>
-      <% end %>
-      <%= link_to "すべての商品を見る>", items_path %>
+      </div>
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col-3">
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image(100,100), class: "new-item" %>
+            <% end %>
+            <p><%= item.name %></p>
+            <p>￥<%= item.price.to_s(:delimited) %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="mr-3 d-flex justify-content-end">
+            <%= link_to "すべての商品を見る>", items_path %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
