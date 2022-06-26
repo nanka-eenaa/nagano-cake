@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-9 offset-2">
       <div class="customer-login-form">
-        <div class="my-2">
+        <div class="my-4">
           <h4 class="ml-5">会員の方はこちらから<strong>ログイン</strong></h4>
         </div>
 
@@ -18,15 +18,15 @@
               <%= f.password_field :password, autocomplete: "current-password", class: "col login-form-style" %>
             </div>
 
-            <div class="form-item mb-2 d-flex justifiy-content-end">
+            <div class="form-item d-flex justifiy-content-end">
               <%= f.submit "ログイン", class: "customer-login-submit" %>
             </div>
           <% end %>
         </div>
-        <div class="my-2">
+        <div class="mt-5 mb-4">
           <h6 class="ml-5">会員登録がお済みでない方</h6>
         </div>
-        <div>
+        <div class="mb-4">
           <p class="offset-2">
             <%= link_to "こちら", new_customer_registration_path %>から新規登録を行なってください。
           </p>

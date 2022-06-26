@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-9">
-      <div>
+    <div class="col-9 py-5">
+      <div class="ml-4 my-4">
         <h4>マイページ</h4>
       </div>
 
-      <div class="col my-3">
+      <div class="col mt-4 my-5">
         <strong>登録情報</strong>
          <%= link_to "編集する", customer_edit_path, class: "btn btn-success ml-4" %>
       </div>
@@ -41,7 +41,7 @@
         </table>
       </div>
 
-      <div class="row mt-4 ml-5">
+      <div class="row my-5 ml-5">
         <div class="col">
           <%= link_to "配送先一覧を見る", addresses_path, class: "btn btn-primary mr-4" %>
           <%= link_to "注文履歴一覧を見る", orders_path, class: "btn btn-primary" %>

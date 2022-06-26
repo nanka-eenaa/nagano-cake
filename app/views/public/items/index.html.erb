@@ -5,15 +5,17 @@
     </div>
     <div class="col-lg-10">
       <h4><strong>商品一覧</strong></h4><h6>(全<%= @all_item.count %>件)</h6>
-      <% @items.each do |item| %>
-        <div>
-          <%= link_to item_path(item.id) do %>
-            <%= image_tag item.get_image(100,100) %>
-          <% end %>
-          <%= item.name %>
-          ￥<%= item.price.to_s(:delimited) %>
-        </div>
-      <% end %>
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col-3 p-3">
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image(100,100) %>
+            <% end %>
+            <p><%= item.name %></p>
+            <p>￥<%= item.price.to_s(:delimited) %></p>
+          </div>
+        <% end %>
+      </div>
       <%= paginate @items %>
     </div>
   </div>
