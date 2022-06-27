@@ -9,7 +9,7 @@
           <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
             <div>
               <%= f.label :image, "商品画像" %>
-              <%= f.file_field :image, accept: "image/*", class: "col login-form-style mb-3 pt-2" %>
+              <%= f.file_field :image, accept: "image/*", class: "col mb-3 pt-2" %>
             </div>
 
             <div>
