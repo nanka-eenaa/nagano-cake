@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-9 offset-2">
-      <div class="customer-login-form">
+      <div class="customer-login-form my-3">
         <div class="my-2">
           <h4>商品新規登録</h4>
         </div>
@@ -10,7 +10,7 @@
           <%= form_with model: @item, url: admin_items_path do |f| %>
             <div class="field">
               <%= f.label :image, "商品画像" %>
-              <%= f.file_field :image, class: "col login-form-style pt-2 mb-3" %>
+              <%= f.file_field :image, class: "col pt-2 mb-3" %>
             </div>
             <div class="field">
               <%= f.label :name, "商品名" %>
@@ -24,7 +24,7 @@
               <%= f.label :genre_id, "ジャンル" %><br/>
               <%= f.collection_select :genre_id, @genres, :id, :name, prompt: "選択してください", class: "col login-form-style " %>
             </div>
-            <div class="field">
+            <div class="field my-3">
               <%= f.label :price, "税抜価格",class: "mt-3" %><br/>
               <%= f.text_field :price, placeholder: "1000", class: "col-10 login-form-style mb3" %>円
             </div>
@@ -36,7 +36,7 @@
               <%= f.label :status, "販売停止中" %>
             </div>
             <div class="actions">
-              <%= f.submit "新規登録", class: "btn btn-success" %>
+              <%= f.submit "新規登録", class: "btn btn-success my-3" %>
             </div>
           <% end %>
         </div>

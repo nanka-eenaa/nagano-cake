@@ -12,84 +12,86 @@
   </head>
 
   <body>
-    <header class="shadow-sm mb-5 py-3">
+    <header class="mb-5 py-3">
       <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <h2><strong><%= link_to "NaganoCake",root_path, class: "logo" %></strong></h2>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-              <% if customer_signed_in? %>
-                <div class="welcome">ようこそ、<%= current_customer.last_name %>さん！</div>
-                <li>
-                  <%= link_to my_page_path, class: 'nav-text btn btn-outline-secondary' do %>
-                    <i class="fas fa-user-circle"></i> マイページ
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-cheese"></i> 商品一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to cart_items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-shopping-cart"></i> カート
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-sign-out-alt"></i> ログアウト
-                  <% end %>
-                </li>
-              <% elsif admin_signed_in? %>
-                <li>
-                  <%= link_to admin_items_path, class: 'nav-text btn btn-outline-secondary' do %>
-                    <i class="fas fa-cheese"></i> 商品一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to admin_customers_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-users"></i> 会員一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to admin_orders_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-history"></i> 注文履歴一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to admin_genres_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-cookie"></i> ジャンル一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-sign-out-alt"></i> ログアウト
-                  <% end %>
-                </li>
-              <% else %>
-                <li>
-                  <%= link_to about_path, class: 'nav-text btn btn-outline-secondary' do %>
-                    <i class="fas fa-store"></i> About
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-birthday-cake"></i> 商品一覧
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to new_customer_registration_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                    <i class="fas fa-user-plus"></i> 新規登録
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to new_customer_session_path, class: 'nav-text btn btn btn-outline-secondary' do %>
-                  <i class="fas fa-sign-in-alt"></i> ログイン
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+        <h2><strong><%= link_to "NaganoCake",root_path, class: "logo" %></strong></h2>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if customer_signed_in? %>
+              <div class="welcome">ようこそ、<%= current_customer.last_name %>さん！</div>
+              <li>
+                <%= link_to my_page_path, class: 'nav-text btn btn-outline-secondary' do %>
+                  <i class="fas fa-user-circle"></i> マイページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-cheese"></i> 商品一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to cart_items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-shopping-cart"></i> カート
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-sign-out-alt"></i> ログアウト
+                <% end %>
+              </li>
+            <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to admin_items_path, class: 'nav-text btn btn-outline-secondary' do %>
+                  <i class="fas fa-cheese"></i> 商品一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_customers_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-users"></i> 会員一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_orders_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-history"></i> 注文履歴一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_genres_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-cookie"></i> ジャンル一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-sign-out-alt"></i> ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to about_path, class: 'nav-text btn btn-outline-secondary' do %>
+                  <i class="fas fa-store"></i> About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to items_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-birthday-cake"></i> 商品一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_registration_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                  <i class="fas fa-user-plus"></i> 新規登録
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_session_path, class: 'nav-text btn btn btn-outline-secondary' do %>
+                <i class="fas fa-sign-in-alt"></i> ログイン
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
         </div>
       </nav>
     </header>
