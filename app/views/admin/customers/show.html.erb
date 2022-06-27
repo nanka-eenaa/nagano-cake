@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container admin-customer">
   <div class= "row">
-    <h4><%= @customer.name %>さんの会員詳細</h4>
+    <h4 class="my-4"><%= @customer.name %>さんの会員詳細</h4>
     <table class="table">
       <tbody>
         <tr>
@@ -48,8 +48,8 @@
             <% end %>
           </td>
         </tr>
-        <td><%= link_to "編集する",edit_admin_customer_path(@customer.id),class: "btn btn-success" %></td>
-        <td><%= link_to "注文履歴一覧を見る", admin_orders_path,class: "btn btn-primary" %></td>
+        <td><%= link_to "編集する",edit_admin_customer_path(@customer.id),class: "btn btn-success my-3" %></td>
+        <td><%= link_to "注文履歴一覧を見る", admin_orders_path,class: "btn btn-primary my-3" %></td>
 
       </tbody>
     </table>

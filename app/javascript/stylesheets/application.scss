@@ -22,6 +22,10 @@ th {
   max-width: 50px;
 }
 
+td {
+  color: #a08a7a;
+}
+
 a {
   color: #a08a7a;
 }
@@ -32,6 +36,7 @@ a:hover {
 
 .btn {
   border-radius: 30px;
+  padding: 10px 24px;
 }
 
 .logo {
@@ -115,6 +120,24 @@ a:hover {
   text-align: center;
 }
 
+// about
+.about-bg {
+  background-image: url("/images/about.jpg");
+  background-size: cover;
+  width: 1000px;
+  height: 75vh;
+  position: relative;
+}
+
+.about-message {
+  width: 100%;
+  color: #ffffff;
+  font-size: 1.35rem;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+}
+
 
 // フォーム
 .form-style {
@@ -132,7 +155,33 @@ a:hover {
   height: 70vh;
 }
 
+.thanks-page {
+  height: 70vh;
+}
 
+.thanks-message {
+  font-size: 2rem;
+  margin: 200px;
+}
+
+.order-table {
+  margin-bottom: 100px;
+}
+
+.admin-customer {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.admin-order {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.customer-order {
+  margin-top: 200px;
+  margin-bottom: 200px;
+}
 
 
 // admin ログイン画面
