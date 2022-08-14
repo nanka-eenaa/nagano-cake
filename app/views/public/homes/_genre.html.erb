@@ -1,0 +1,14 @@
+<table class="table top-genre">
+  <thead>
+    <tr>
+      <th>ジャンル検索</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% genres.each do |genre| %>
+      <tr>
+        <td><%= genre.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
